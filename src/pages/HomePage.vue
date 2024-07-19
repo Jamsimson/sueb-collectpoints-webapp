@@ -45,7 +45,7 @@ defineOptions({
     },
   },
   async mounted() {
-    setInterval(this.fetchData, 900000);
+    setInterval(this.fetchData, 5000);
   },
 });
 
