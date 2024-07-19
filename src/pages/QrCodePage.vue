@@ -43,6 +43,9 @@ export default defineComponent({
       model: ref(null),
     };
   },
+  components: {
+    QrcodeVue,
+  },
   data() {
     return {
       x: "",

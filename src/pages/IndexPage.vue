@@ -68,6 +68,7 @@ const createAccount = async () => {
       point: 0,
     };
     if (!LocalStorage.getItem("eiei")) {
+      LocalStorage.set("point", 0);
       LocalStorage.set("eiei", phone.value);
       console.log("New eiei", localStorage.getItem("eiei"));
     }

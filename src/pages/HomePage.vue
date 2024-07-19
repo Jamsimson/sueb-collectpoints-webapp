@@ -22,24 +22,43 @@
 
 <script setup>
 import { api } from "src/boot/axios";
-import { ref } from "vue";
 import { LocalStorage } from "quasar";
-var point = ref(0);
+import { ref } from "vue";
+// import { service } from "src/services/api";
+
 defineOptions({
   name: "HomePage",
   data() {
     return {
-      info: [],
+      point: LocalStorage.getItem("point"),
     };
   },
-
+  methods: {
+    async fetchData() {
+      try {
+        const res = await api
+          .get(`read/${LocalStorage.getItem("eiei")}`)
+          .then((response) => LocalStorage.set("point", response.data.point));
+      } catch (error) {
+        console.log("erro", error);
+      }
+    },
+  },
   async mounted() {
-    api
-      .get(`read/${LocalStorage.getItem("eiei")}`)
-      .then((response) => (this.info = response))
-      .catch((error) => console.log(error));
+    setInterval(this.fetchData, 900000);
   },
 });
+
+// const fetchData = async () => {
+//   try {
+//     const res = await api
+//       .get(`read/${LocalStorage.getItem("eiei")}`)
+//       .then((response) => (this.point = response.data.point));
+//   } catch (error) {
+//     console.log("erro", error);
+//   }
+// };
+
 console.log("Local storage: ", LocalStorage.getItem("eiei"));
 </script>
 
