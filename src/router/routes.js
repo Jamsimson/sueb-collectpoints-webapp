@@ -11,6 +11,10 @@ const routes = [
         component: () => import("pages/IndexPage.vue"),
       },
     ],
+    beforeEnter: (to, from) => {
+      console.log("📞stage phone number:", LocalStorage.getItem("phone"));
+      if (LocalStorage.getItem("phone")) return "/";
+    },
   },
   {
     path: "/",
@@ -19,8 +23,8 @@ const routes = [
       { path: "", name: "home", component: () => import("pages/HomePage.vue") },
     ],
     beforeEnter: (to, from) => {
-      console.log("Log:", LocalStorage.getItem("eiei"));
-      if (!LocalStorage.getItem("eiei")) return "/register";
+      console.log("📞stage phone number::", LocalStorage.getItem("phone"));
+      if (!LocalStorage.getItem("phone")) return "/register";
     },
   },
   {

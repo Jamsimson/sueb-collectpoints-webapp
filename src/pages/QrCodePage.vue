@@ -53,7 +53,7 @@ export default defineComponent({
       message: null,
       size: 300,
       accounts: [],
-      qrcodes: LocalStorage.getItem("eiei"),
+      qrcodes: LocalStorage.getItem("phone"),
       test: [],
     };
   },

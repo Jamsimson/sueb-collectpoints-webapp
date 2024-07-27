@@ -67,10 +67,10 @@ const createAccount = async () => {
       phonenumber: phone.value,
       point: 0,
     };
-    if (!LocalStorage.getItem("eiei")) {
+    if (!LocalStorage.getItem("phone")) {
       LocalStorage.set("point", 0);
-      LocalStorage.set("eiei", phone.value);
-      console.log("New eiei", localStorage.getItem("eiei"));
+      LocalStorage.set("phone", phone.value);
+      console.log("New phone", localStorage.getItem("phone"));
     }
     await api
       .post("create", data)

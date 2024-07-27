@@ -37,7 +37,7 @@ defineOptions({
     async fetchData() {
       try {
         const res = await api
-          .get(`read/${LocalStorage.getItem("eiei")}`)
+          .get(`read/${LocalStorage.getItem("phone")}`)
           .then((response) => LocalStorage.set("point", response.data.point));
       } catch (error) {
         console.log("erro", error);
@@ -52,14 +52,14 @@ defineOptions({
 // const fetchData = async () => {
 //   try {
 //     const res = await api
-//       .get(`read/${LocalStorage.getItem("eiei")}`)
+//       .get(`read/${LocalStorage.getItem("phone")}`)
 //       .then((response) => (this.point = response.data.point));
 //   } catch (error) {
 //     console.log("erro", error);
 //   }
 // };
 
-console.log("Local storage: ", LocalStorage.getItem("eiei"));
+console.log("Local storage: ", LocalStorage.getItem("phone"));
 </script>
 
 <style>
